@@ -13,6 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    //MARK: IBActions
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        setUpImagePickerController()
+    }
+    
+    //MARK: LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
     }
