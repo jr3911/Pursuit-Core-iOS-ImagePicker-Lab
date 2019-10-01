@@ -40,3 +40,18 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else {
+            //couldn't get image :(
+            return
+        }
+        
+        let d = info[.mediaType] as! String
+        
+        profilePic.image = image
+        nameLabel.text = d
+        
+        dismiss(animated: true, completion: nil)
+    }
+}
