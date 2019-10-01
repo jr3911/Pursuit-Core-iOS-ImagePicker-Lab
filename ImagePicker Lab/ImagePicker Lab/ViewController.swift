@@ -21,8 +21,22 @@ class ViewController: UIViewController {
     //MARK: LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadGenericProfile()
     }
-
+    
+    private func loadGenericProfile() {
+        profilePic.layer.masksToBounds = true
+        profilePic.layer.cornerRadius = profilePic.bounds.width / 2
+        profilePic.image = UIImage(named: "genericProfilePic")
+        nameLabel.text = "Joe Schmoe"
+    }
+    
+    func setUpImagePickerController() {
+        let imagePickerViewController = UIImagePickerController()
+        imagePickerViewController.delegate = self
+        present(imagePickerViewController, animated: true, completion: nil)
+        //open up that image picker thing, add it
+    }
 
 }
 
